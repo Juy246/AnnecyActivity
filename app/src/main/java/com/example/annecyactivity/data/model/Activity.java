@@ -10,6 +10,7 @@ public class Activity {
     private double price;
     private String description;
     private boolean isOutside;
+    private List<Activity> activities = new ArrayList<>();
 
     public Activity(String id, String name, String location, double price, String description, boolean isOutside) {
         this.id = id;
