@@ -33,14 +33,12 @@ public class ForecastRepository {
     public MutableLiveData<Forecast> getForecastLiveData() {
         return forecastLiveData;
     }
-
-
     public LiveData<Forecast> getAll() {
         return forecastLiveData;
     }
 
     //requete vers API
-    public LiveData<Forecast> forecastAPI (String city, String apiKey, String units){
+    public LiveData<Forecast> fetchForecast (String city, String apiKey, String units){
         Call<Forecast> call =
                 openWeatherService.getForecast(city, "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
 
@@ -79,9 +77,11 @@ public class ForecastRepository {
             @Override
             public void onFailure (Call < Forecast > call, Throwable t){
                // Toast.makeText(Forecast.this, "Échec réseau : " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                forecastLiveData.postValue(null);
             }
         });
         return forecastLiveData;
     }
+
 }
 

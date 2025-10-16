@@ -8,8 +8,10 @@ import com.example.annecyactivity.data.repository.ForecastRepository;
 
 import java.util.List;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import jakarta.inject.Inject;
 
+@HiltViewModel
 public class ForecastViewModel extends ViewModel {
     private final ForecastRepository repo;
 
@@ -18,8 +20,12 @@ public class ForecastViewModel extends ViewModel {
         this.repo = repo;
     }
 
-    public LiveData<Forecast> forecastAPI (String city, String apiKey, String units){
-        return repo.forecastAPI(city, apiKey, units);
+    public LiveData<Forecast> getAll() {
+        return repo.getAll();
+    }
+
+    public LiveData<Forecast> fetchForecast (String city, String apiKey, String units){
+        return repo.fetchForecast (city, apiKey, units);
     }
 
 }
