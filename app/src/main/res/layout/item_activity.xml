@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageActivity"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_activity_placeholder" />
+
+        <TextView
+            android:id="@+id/textActivityName"
+            android:layout_toEndOf="@id/imageActivity"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Nom" />
+
+        <TextView
+            android:id="@+id/textLocation"
+            android:layout_below="@id/textActivityName"
+            android:layout_toEndOf="@id/imageActivity"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lieu" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="266dp"
+            android:text="0.00€" />
+
+        <Button
+            android:id="@+id/btnDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textLocation"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toEndOf="@id/imageActivity"
+            android:text="Afficher en détail" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
