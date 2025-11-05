@@ -10,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.annecyactivity.R;
-import com.example.annecyactivity.viewmodel.ForecastViewModel;
+import com.example.annecyactivity.viewmodel.ForecastsViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
-    private ForecastViewModel vm;
+    private ForecastsViewModel vm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        vm = new ViewModelProvider(this).get(ForecastViewModel.class);
+        vm = new ViewModelProvider(this).get(ForecastsViewModel.class);
         vm.fetchForecast("Annecy", "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
 
 

@@ -40,7 +40,7 @@ public class ForecastRepository {
     //requete vers API
     public LiveData<Forecast> fetchForecast (String city, String apiKey, String units){
         Call<Forecast> call =
-                openWeatherService.getForecast(city, "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
+                openWeatherService.getForecast("Annecy", "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
 
         call.enqueue(new Callback<Forecast>()
 

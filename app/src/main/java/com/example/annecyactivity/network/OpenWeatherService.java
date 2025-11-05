@@ -1,5 +1,6 @@
 package com.example.annecyactivity.network;
 
+import com.example.annecyactivity.data.model.AirQuality;
 import com.example.annecyactivity.data.model.Forecast;
 
 import retrofit2.Call;
@@ -15,7 +16,7 @@ public interface OpenWeatherService {
     );
 
     @GET("air_pollution")
-    Call<Forecast> getAirPollution(
+    Call<AirQuality> getAirPollution(
             @Query("lat") double lat,
             @Query("lon") double lon,
             @Query("appid") String apiKey
