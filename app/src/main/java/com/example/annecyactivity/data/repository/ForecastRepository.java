@@ -30,26 +30,20 @@ public class ForecastRepository {
         this.openWeatherService = openWeatherService;
     }
 
-    public MutableLiveData<Forecast> getForecastLiveData() {
-        return forecastLiveData;
-    }
-    public LiveData<Forecast> getAll() {
+    public LiveData<Forecast> getForecastLiveData() {
         return forecastLiveData;
     }
 
     //requete vers API
-    public LiveData<Forecast> fetchForecast (String city, String apiKey, String units){
+    public void fetchForecast (String city, String apiKey, String units){
         Call<Forecast> call =
                 openWeatherService.getForecast("Annecy", "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
 
         call.enqueue(new Callback<Forecast>()
-
         {
             // Callback invoqué quand on reçoit une réponse HTTP du serveur (200, 404, 500, …).
             @Override
             public void onResponse (Call < Forecast > call, Response< Forecast > response){
-
-
                 // isSuccessful() couvre les codes 2xx. Toujours vérifier qu’il y a un body.
                 if (response.isSuccessful() && response.body() != null) {
                     // Corps de réponse désérialisé par Gson en objet Forecast (selon les @SerializedName).
@@ -80,7 +74,6 @@ public class ForecastRepository {
                 forecastLiveData.postValue(null);
             }
         });
-        return forecastLiveData;
     }
 
 }

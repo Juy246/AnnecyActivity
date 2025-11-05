@@ -30,7 +30,7 @@ public class ActivityListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         viewModel = new ViewModelProvider(this).get(ActivityViewModel.class);
-        viewModel.loadActivities();
+        viewModel.loadActivities("");
 
         viewModel.getActivities().observe(getViewLifecycleOwner(), activities -> {
             ActivityAdapter adapter = new ActivityAdapter(activities, activity -> {

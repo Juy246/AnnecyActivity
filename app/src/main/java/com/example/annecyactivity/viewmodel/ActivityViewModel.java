@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class ActivityViewModel extends ViewModel {
     private final ActivityRepository repository = new ActivityRepository();
     private final MutableLiveData<List<Activity>> activities = new MutableLiveData<>();
-    private String currentWeatherCondition = "clear"; // valeur par défaut
 
     public LiveData<List<Activity>> getActivities() {
         return activities;
@@ -21,16 +20,21 @@ public class ActivityViewModel extends ViewModel {
 
     // Charge les activités selon la météo actuelle
     public void loadActivities(String weatherCondition) {
-        currentWeatherCondition = weatherCondition;
-        activities.setValue(repository.getAllActivities(weatherCondition));
+        // Appelle directement la méthode de filtrage du repository
+        List<Activity> filteredActivities = repository.getActivitiesByWeather(weatherCondition);
+
+        // Met à jour le LiveData avec le résultat
+        activities.setValue(filteredActivities);
     }
+
 
     // Filtre selon météo, température, intérieur/extérieur
     public void filterActivities(String weather, double temp, boolean isOutside) {
-        List<Activity> filtered = repository.getAllActivities(weather).stream()
+        List<Activity> filtered = repository.getAllActivities().stream()
                 .filter(a -> a.getSuggestedWeather().equalsIgnoreCase(weather)
                         && a.isOutside() == isOutside)
                 .collect(Collectors.toList());
         activities.setValue(filtered);
     }
 }
+

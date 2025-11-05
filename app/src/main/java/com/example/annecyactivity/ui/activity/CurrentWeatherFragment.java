@@ -14,12 +14,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.example.annecyactivity.R;
-import com.example.annecyactivity.data.model.AirQuality;
-import com.example.annecyactivity.data.model.Weather;
-import com.example.annecyactivity.viewmodel.ForecastViewModel;
 
+import com.example.annecyactivity.data.model.Forecast;
+import com.example.annecyactivity.data.model.Weather;
+import com.example.annecyactivity.viewmodel.ForecastsViewModel;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class CurrentWeatherFragment extends Fragment {
-    private ForecastViewModel viewModel;
+    private ForecastsViewModel viewModel;
     private TextView temp, feels_like, humidity, pressure, airQuality;
 
     @Nullable
@@ -43,24 +47,28 @@ public class CurrentWeatherFragment extends Fragment {
         btnChooseWeather.setOnClickListener(v -> Navigation.findNavController(v)
                 .navigate(R.id.action_currentWeatherFragment_to_formFragment));
 
-        viewModel = new ViewModelProvider(this).get(ForecastViewModel.class);
-        viewModel.loadWeather("Annecy");
-
-        viewModel.getWeather().observe(getViewLifecycleOwner(), this::updateWeatherUI);
-        viewModel.getAirQuality().observe(getViewLifecycleOwner(), this::updateAirQualityUI);
+        viewModel = new ViewModelProvider(this).get(ForecastsViewModel.class);
+        viewModel.getForecast()
+                .observe(getViewLifecycleOwner(), this::updateWeatherUI);
+        viewModel.fetchForecast("Annecy", "44e0343a7e7081c5df0a4b5f913f3c19", "metric");
 
         return view;
     }
 
-    private void updateWeatherUI(Weather weather) {
-        tempText.setText(weather.main.temp + " °C");
-        feelsText.setText("Ressenti : " + weather.main.feels_like + " °C");
-        humidityText.setText("Humidité : " + weather.main.humidity + "%");
-        pressureText.setText("Pression : " + weather.main.pressure + " hPa");
-    }
-
-    private void updateAirQualityUI(AirQuality airQuality) {
-        int aqi = airQuality.list.get(0).main.aqi;
-        airQualityText.setText("Qualité de l’air : " + aqi);
+    private void updateWeatherUI(Forecast forecast) {
+        // Cette méthode est appelée automatiquement quand le LiveData change.
+        if (forecast != null && forecast.getMain() != null) {
+            Weather weather = forecast.getMain();
+            temp.setText(weather.getTemp() + " °C");
+            feels_like.setText("Ressenti : " + weather.getFeelsLike() + " °C");
+            humidity.setText("Humidité : " + weather.getHumidity() + "%");
+            pressure.setText("Pression : N/A"); // Pression non disponible dans votre modèle
+        } else {
+            // Gérer le cas où les données sont nulles (erreur réseau ou API)
+            temp.setText("N/A");
+            feels_like.setText("Données non disponibles");
+            humidity.setText("Humidité : N/A");
+            pressure.setText("Pression : N/A");
+        }
     }
 }

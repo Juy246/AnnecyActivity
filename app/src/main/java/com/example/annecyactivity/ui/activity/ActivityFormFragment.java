@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class ActivityFormFragment extends Fragment {
     private ActivityViewModel viewModel;
-    private ActivityAdapter adapter;
 
 
     @Nullable
@@ -40,9 +39,9 @@ public class ActivityFormFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerFilteredActivities);
 
         ArrayList<String> weatherCondition = new ArrayList<>();
-        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, weatherCondition);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerWeather.setAdapter(adapter);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, weatherCondition);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerWeather.setAdapter(spinnerAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         viewModel = new ViewModelProvider(this).get(ActivityViewModel.class);
