@@ -10,15 +10,17 @@ public class Activity {
     private double price;
     private String description;
     private boolean isOutside;
-    private List<Activity> activities = new ArrayList<>();
-
-    public Activity(String id, String name, String location, double price, String description, boolean isOutside) {
+    private String suggestedWeather;
+    private String imageUrl;
+    public Activity(String id, String name, String location, double price, String description, boolean isOutside, String suggestedWeather, String imageUrl) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.price = price;
         this.description = description;
         this.isOutside = isOutside;
+        this.suggestedWeather = suggestedWeather;
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {return id;}
@@ -37,6 +39,8 @@ public class Activity {
     public boolean isOutside() {
         return isOutside;
     }
+    public String getSuggestedWeather() { return suggestedWeather; }
+    public String getImageUrl() { return imageUrl; }
 
     @Override
     public String toString() {

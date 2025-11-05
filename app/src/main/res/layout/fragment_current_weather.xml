@@ -5,10 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.CurrentWeatherFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <TextView android:id="@+id/textTemp" android:textSize="30sp"/>
+        <TextView android:id="@+id/textFeelsLike"/>
+        <TextView android:id="@+id/textHumidity"/>
+        <TextView android:id="@+id/textPressure"/>
+        <TextView android:id="@+id/textAirQuality"/>
+
+        <Button android:id="@+id/btnActivities" android:text="Activités suggérées"/>
+        <Button android:id="@+id/btnChooseWeather" android:text="Choisir un météo"/>
+    </LinearLayout>
+
 
 </FrameLayout>
