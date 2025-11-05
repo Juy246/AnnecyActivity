@@ -13,4 +13,11 @@ public interface OpenWeatherService {
             @Query("appid") String apiKey,   // à mettre dans BuildConfig
             @Query("units") String units     // "metric" pour °C
     );
+
+    @GET("air_pollution")
+    Call<Forecast> getAirPollution(
+            @Query("lat") double lat,
+            @Query("lon") double lon,
+            @Query("appid") String apiKey
+    );
 }
