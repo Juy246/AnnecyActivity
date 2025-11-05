@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class ActivityRepository {
 
-    public List<Activity> getActivitiesByWeather(String weatherCondition) {
+    public List<Activity> getAllActivities(String weatherCondition) {
         List<Activity> activities = new ArrayList<>();
 
         // Normalisation du texte météo

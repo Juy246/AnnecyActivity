@@ -4,34 +4,62 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/currentWeatherFragment">
 
+    <!-- Fragment Météo actuelle -->
     <fragment
         android:id="@+id/currentWeatherFragment"
         android:name="com.example.annecyactivity.ui.activity.CurrentWeatherFragment"
         android:label="Météo actuelle">
         <action
             android:id="@+id/action_currentWeatherFragment_to_activityListFragment"
-            app:destination="@id/activityListFragment" />
+            app:destination="@id/activityListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_currentWeatherFragment_to_formFragment"
-            app:destination="@id/formFragment" />
+            app:destination="@id/formFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 
+    <!-- Fragment Liste des activités -->
     <fragment
         android:id="@+id/activityListFragment"
         android:name="com.example.annecyactivity.ui.activity.ActivityListFragment"
         android:label="Liste des activités">
         <action
             android:id="@+id/action_activityListFragment_to_activityDetailFragment"
-            app:destination="@id/activityDetailFragment" />
+            app:destination="@id/activityDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 
+    <!-- Fragment Détail de l'activité -->
     <fragment
         android:id="@+id/activityDetailFragment"
         android:name="com.example.annecyactivity.ui.activity.ActivityDetailFragment"
-        android:label="Détail de l’activité" />
+        android:label="Détail de l'activité">
+        <argument
+            android:name="activityId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="activityName"
+            app:argType="string"
+            android:defaultValue="Activité" />
+    </fragment>
 
+    <!-- Fragment Formulaire de filtrage -->
     <fragment
         android:id="@+id/formFragment"
         android:name="com.example.annecyactivity.ui.activity.FormFragment"
-        android:label="Sélectionner les activités" />
+        android:label="Sélectionner les activités">
+        <action
+            android:id="@+id/action_formFragment_to_activityListFragment"
+            app:destination="@id/activityListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/formFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
 </navigation>
