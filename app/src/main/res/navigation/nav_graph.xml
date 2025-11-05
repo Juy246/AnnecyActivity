@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/currentWeatherFragment">
+
+    <fragment
+        android:id="@+id/currentWeatherFragment"
+        android:name="com.example.annecyactivity.ui.activity.CurrentWeatherFragment"
+        android:label="Météo actuelle">
+        <action
+            android:id="@+id/action_currentWeatherFragment_to_activityListFragment"
+            app:destination="@id/activityListFragment" />
+        <action
+            android:id="@+id/action_currentWeatherFragment_to_formFragment"
+            app:destination="@id/formFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityListFragment"
+        android:name="com.example.annecyactivity.ui.activity.ActivityListFragment"
+        android:label="Liste des activités">
+        <action
+            android:id="@+id/action_activityListFragment_to_activityDetailFragment"
+            app:destination="@id/activityDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityDetailFragment"
+        android:name="com.example.annecyactivity.ui.activity.ActivityDetailFragment"
+        android:label="Détail de l’activité" />
+
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="com.example.annecyactivity.ui.activity.FormFragment"
+        android:label="Sélectionner les activités" />
+</navigation>
