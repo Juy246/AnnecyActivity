@@ -20,7 +20,7 @@ import com.example.annecyactivity.viewmodel.ForecastViewModel;
 
 public class CurrentWeatherFragment extends Fragment {
     private ForecastViewModel viewModel;
-    private TextView tempText, feelsText, humidityText, pressureText, airQualityText;
+    private TextView temp, feels_like, humidity, pressure, airQuality;
 
     @Nullable
     @Override
@@ -28,11 +28,11 @@ public class CurrentWeatherFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_current_weather, container, false);
 
-        tempText = view.findViewById(R.id.textTemp);
-        feelsText = view.findViewById(R.id.textFeelsLike);
-        humidityText = view.findViewById(R.id.textHumidity);
-        pressureText = view.findViewById(R.id.textPressure);
-        airQualityText = view.findViewById(R.id.textAirQuality);
+        temp = view.findViewById(R.id.textTemp);
+        feels_like = view.findViewById(R.id.textFeelsLike);
+        humidity = view.findViewById(R.id.textHumidity);
+        pressure = view.findViewById(R.id.textPressure);
+        airQuality = view.findViewById(R.id.textAirQuality);
 
         Button btnActivities = view.findViewById(R.id.btnActivities);
         Button btnChooseWeather = view.findViewById(R.id.btnChooseWeather);

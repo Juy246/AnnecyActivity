@@ -26,7 +26,7 @@ public class ActivityListFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_activity_list, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerActivities);
+        RecyclerView recyclerView = view.findViewById(R.id.activity_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         viewModel = new ViewModelProvider(this).get(ActivityViewModel.class);

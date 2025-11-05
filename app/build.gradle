@@ -64,6 +64,10 @@ dependencies {
     implementation platform('com.squareup.okhttp3:okhttp-bom:4.12.0')
     implementation 'com.squareup.okhttp3:okhttp'
     implementation 'com.squareup.okhttp3:logging-interceptor'
+    // Glide (pour charger des images)
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
 
 }
 

@@ -44,6 +44,9 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
         holder.location.setText(activity.getLocation());
         Glide.with(holder.itemView.getContext())
                 .load(activity.getImageUrl())
+                .placeholder(android.R.drawable.ic_menu_gallery) // affiché pendant le chargement
+                .error(android.R.drawable.ic_menu_report_image)  // affiché en cas d’erreur
+                .centerCrop()
                 .into(holder.image);
         holder.detailButton.setOnClickListener(v -> listener.onItemClick(activity));
     }
@@ -63,7 +66,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
             name = itemView.findViewById(R.id.textActivityName);
             location = itemView.findViewById(R.id.textLocation);
             image = itemView.findViewById(R.id.imageActivity);
-            detailButton = itemView.findViewById(R.id.btnDetails);
+            detailButton = itemView.findViewById(R.id.btnDetail);
         }
     }
 }

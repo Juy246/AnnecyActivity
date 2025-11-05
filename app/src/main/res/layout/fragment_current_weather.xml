@@ -12,14 +12,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView android:id="@+id/textTemp" android:textSize="30sp"/>
-        <TextView android:id="@+id/textFeelsLike"/>
-        <TextView android:id="@+id/textHumidity"/>
-        <TextView android:id="@+id/textPressure"/>
-        <TextView android:id="@+id/textAirQuality"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textTemp"/>
 
-        <Button android:id="@+id/btnActivities" android:text="Activités suggérées"/>
-        <Button android:id="@+id/btnChooseWeather" android:text="Choisir un météo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textFeelsLike"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textHumidity"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textPressure"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textAirQuality"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnActivities"
+            android:text="Activités suggérées"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnChooseWeather"
+            android:text="Choisir un météo"
+        />
+
     </LinearLayout>
 
 

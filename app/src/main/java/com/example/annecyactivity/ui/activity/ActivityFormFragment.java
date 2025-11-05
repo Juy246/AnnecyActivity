@@ -20,8 +20,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.annecyactivity.R;
 import com.example.annecyactivity.viewmodel.ActivityViewModel;
 
-public class FormFragment extends Fragment {
+import java.util.ArrayList;
+
+public class ActivityFormFragment extends Fragment {
     private ActivityViewModel viewModel;
+    private ActivityAdapter adapter;
+
 
     @Nullable
     @Override
@@ -35,8 +39,8 @@ public class FormFragment extends Fragment {
         Button btnValidate = view.findViewById(R.id.btnValidate);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerFilteredActivities);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.weather_array, android.R.layout.simple_spinner_item);
+        ArrayList<String> weatherCondition = new ArrayList<>();
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, weatherCondition);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerWeather.setAdapter(adapter);
 

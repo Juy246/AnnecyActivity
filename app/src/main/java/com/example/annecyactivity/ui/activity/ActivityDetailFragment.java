@@ -29,9 +29,15 @@ public class ActivityDetailFragment extends Fragment {
             ((TextView) view.findViewById(R.id.textDetailDescription)).setText(args.getString("description"));
             ((TextView) view.findViewById(R.id.textDetailWeather)).setText("Météo suggérée : " + args.getString("weather"));
             ((TextView) view.findViewById(R.id.textDetailOutside)).setText(args.getBoolean("isOutside") ? "Extérieur" : "Intérieur");
+
+            ImageView imageView = view.findViewById(R.id.imageDetail);
+            String activityImageUrl = args.getString("imageUrl");
             Glide.with(this)
-                    .load(args.getString("image"))
-                    .into((ImageView) view.findViewById(R.id.imageDetail));
+                    .load(activityImageUrl)
+                    .placeholder(android.R.drawable.ic_menu_gallery)
+                    .error(android.R.drawable.ic_menu_report_image)
+                    .centerCrop()
+                    .into(imageView);
         }
         return view;
     }

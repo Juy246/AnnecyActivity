@@ -1,9 +1,10 @@
 package com.example.annecyactivity.data.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity {
+public class Activity implements Serializable {
     private String id;
     private String name;
     private String location;

@@ -15,7 +15,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_activity_placeholder" />
+            android:src="@android:drawable/ic_menu_gallery" />
 
         <TextView
             android:id="@+id/textActivityName"
