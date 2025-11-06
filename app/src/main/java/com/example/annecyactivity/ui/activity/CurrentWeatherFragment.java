@@ -24,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class CurrentWeatherFragment extends Fragment {
     private ForecastsViewModel viewModel;
-    private TextView temp, feels_like, humidity, pressure, airQuality;
+    private TextView temp, temp_min, temp_max, condition, feels_like, humidity, pressure;
 
     @Nullable
     @Override
@@ -33,10 +33,11 @@ public class CurrentWeatherFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_current_weather, container, false);
 
         temp = view.findViewById(R.id.textTemp);
+        temp_min = view.findViewById(R.id.textTempMin);
+        temp_max = view.findViewById(R.id.textTempMax);
         feels_like = view.findViewById(R.id.textFeelsLike);
         humidity = view.findViewById(R.id.textHumidity);
         pressure = view.findViewById(R.id.textPressure);
-        airQuality = view.findViewById(R.id.textAirQuality);
 
         Button btnActivities = view.findViewById(R.id.btnActivities);
         Button btnChooseWeather = view.findViewById(R.id.btnChooseWeather);
@@ -60,9 +61,12 @@ public class CurrentWeatherFragment extends Fragment {
         if (forecast != null && forecast.getMain() != null) {
             Weather weather = forecast.getMain();
             temp.setText(weather.getTemp() + " °C");
+            temp_min.setText("Temp Min : " + weather.getTemp_min() + " °C");
+            temp_max.setText("Temp Max : " + weather.getTemp_max() + " °C");
             feels_like.setText("Ressenti : " + weather.getFeelsLike() + " °C");
             humidity.setText("Humidité : " + weather.getHumidity() + "%");
-            pressure.setText("Pression : N/A"); // Pression non disponible dans votre modèle
+            pressure.setText("Pression : " + weather.getPressure() + " hPa");
+
         } else {
             // Gérer le cas où les données sont nulles (erreur réseau ou API)
             temp.setText("N/A");
