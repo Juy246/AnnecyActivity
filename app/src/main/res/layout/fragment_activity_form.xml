@@ -5,10 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Spinner android:id="@+id/spinnerWeather"/>
-    <EditText android:id="@+id/inputTemp" android:hint="Température" android:inputType="numberDecimal"/>
-    <Switch android:id="@+id/switchOutside" android:text="Extérieur ?"/>
-    <Button android:id="@+id/btnValidate" android:text="Valider"/>
+    <Spinner
+        android:id="@+id/spinnerWeather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/inputTemp"
+        android:hint="Température"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Switch
+        android:id="@+id/switchOutside"
+        android:text="Extérieur ?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnValidate"
+        android:text="Valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFilteredActivities"
