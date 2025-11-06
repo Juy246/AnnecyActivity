@@ -31,13 +31,26 @@ public class ActivityDetailFragment extends Fragment {
             ((TextView) view.findViewById(R.id.textDetailOutside)).setText(args.getBoolean("isOutside") ? "Extérieur" : "Intérieur");
 
             ImageView imageView = view.findViewById(R.id.imageDetail);
+            int imageRes = args.getInt("imageRes", 0);
             String activityImageUrl = args.getString("imageUrl");
-            Glide.with(this)
-                    .load(activityImageUrl)
-                    .placeholder(android.R.drawable.ic_menu_gallery)
-                    .error(android.R.drawable.ic_menu_report_image)
-                    .centerCrop()
-                    .into(imageView);
+
+            if (imageRes != 0) {
+                Glide.with(this)
+                        .load(imageRes)
+                        .placeholder(android.R.drawable.ic_menu_gallery)
+                        .error(android.R.drawable.ic_menu_report_image)
+                        .centerCrop()
+                        .into(imageView);
+            } else if (activityImageUrl != null && !activityImageUrl.isEmpty()) {
+                Glide.with(this)
+                        .load(activityImageUrl)
+                        .placeholder(android.R.drawable.ic_menu_gallery)
+                        .error(android.R.drawable.ic_menu_report_image)
+                        .centerCrop()
+                        .into(imageView);
+            } else {
+                imageView.setImageResource(android.R.drawable.ic_menu_report_image);
+            }
         }
         return view;
     }

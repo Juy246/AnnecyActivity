@@ -1,5 +1,6 @@
 package com.example.annecyactivity.data.repository;
 
+import com.example.annecyactivity.R;
 import com.example.annecyactivity.data.model.Activity;
 
 import java.util.ArrayList;
@@ -28,8 +29,8 @@ public class ActivityRepository {
                 "Profitez du soleil pour une belle randonnée avec vue sur le lac.",
                 true,
                 "Clear",
-                "https://cdn.pixabay.com/photo/2016/11/29/13/02/adventure-1868817_1280.jpg"
-        ));
+                R.drawable.randonnee
+                ));
 
         // Activité 2 : Balade autour du lac (Beau temps)
         activities.add(new Activity(
@@ -40,20 +41,20 @@ public class ActivityRepository {
                 "Idéal pour marcher ou faire du vélo en bord de lac.",
                 true,
                 "Clear",
-                "https://cdn.pixabay.com/photo/2016/06/29/09/20/annecy-1487297_1280.jpg"
+                R.drawable.balade
         ));
 
         // Activité 3 : Pique-nique au parc (Beau temps)
         activities.add(new Activity(
                 UUID.randomUUID().toString(),
-                "Pique-nique au parc Charles Bosson",
-                "Annecy centre",
+                "Pique-nique au boud du Lac",
+                "Lac d'Annecy",
                 0.0,
                 "Détente en plein air avec une belle vue sur le lac.",
                 true,
                 "Clear",
-                "https://cdn.pixabay.com/photo/2017/06/17/18/31/picnic-2414007_1280.jpg"
-        ));
+                R.drawable.pique_nique
+                ));
 
         // Activité 4 : Musée Château d'Annecy (Mauvais temps - Pluie)
         activities.add(new Activity(
@@ -64,7 +65,7 @@ public class ActivityRepository {
                 "Musée d'art et d'histoire dans un château médiéval.",
                 false,
                 "Rain",
-                "https://cdn.pixabay.com/photo/2015/05/15/14/47/castle-768611_1280.jpg"
+                R.drawable.chateau
         ));
 
         // Activité 5 : Cinéma Pathé (Mauvais temps - Pluie)
@@ -76,7 +77,7 @@ public class ActivityRepository {
                 "Regardez des films dans le cinéma.",
                 false,
                 "Rain",
-                "https://cdn.pixabay.com/photo/2017/08/02/01/01/movie-theater-2565549_1280.jpg"
+                R.drawable.cinema
         ));
 
         // Activité 6 : Ski à La Clusaz (Neige)
@@ -88,56 +89,7 @@ public class ActivityRepository {
                 "Journée de ski à 30 minutes d'Annecy.",
                 true,
                 "Snow",
-                "https://cdn.pixabay.com/photo/2016/11/29/09/32/alps-1866830_1280.jpg"
-        ));
-
-        // Activité 7 : Soirée raclette/fondue (Neige)
-        activities.add(new Activity(
-                UUID.randomUUID().toString(),
-                "Soirée raclette/fondue",
-                "Restaurant Savoyard",
-                25.0,
-                "Ambiance chaleureuse après une journée froide.",
-                false,
-                "Snow",
-                "https://cdn.pixabay.com/photo/2015/02/02/11/08/winter-621882_1280.jpg"
-        ));
-
-        // Activité 8 : Musée du Film d'Animation (Vent)
-        activities.add(new Activity(
-                UUID.randomUUID().toString(),
-                "Musée du Film d'Animation",
-                "Annecy centre",
-                5.0,
-                "Découvrez l'histoire du cinéma d'animation français.",
-                false,
-                "Wind",
-                "https://cdn.pixabay.com/photo/2016/11/21/15/45/museum-1844707_1280.jpg"
-        ));
-
-        // Activité 9 : Visite de la vieille ville (Brouillard)
-        activities.add(new Activity(
-                UUID.randomUUID().toString(),
-                "Visite de la vieille ville",
-                "Annecy",
-                0.0,
-                "Explorez les ruelles pittoresques sous le brouillard.",
-                true,
-                "Fog",
-                "https://cdn.pixabay.com/photo/2016/10/29/09/08/clouds-1774739_1280.jpg"
-        ));
-
-        // Activité 10 : Balade dans la vieille ville (Nuageux)
-        activities.add(new Activity(
-                UUID.randomUUID().toString(),
-                "Balade dans la vieille ville",
-                "Annecy centre",
-                0.0,
-                "Une promenade agréable quelle que soit la météo.",
-                true,
-                "Clouds",
-                "https://cdn.pixabay.com/photo/2017/03/28/12/16/annecy-2188639_1280.jpg"
-        ));
+                R.drawable.ski));
 
         return activities;
     }

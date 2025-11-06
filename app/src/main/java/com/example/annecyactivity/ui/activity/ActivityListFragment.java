@@ -41,7 +41,7 @@ public class ActivityListFragment extends Fragment {
                 bundle.putString("description", activity.getDescription());
                 bundle.putBoolean("isOutside", activity.isOutside());
                 bundle.putString("weather", activity.getSuggestedWeather());
-                bundle.putString("image", activity.getImageUrl());
+                bundle.putInt("imageRes", activity.getImageResId());
                 Navigation.findNavController(view)
                         .navigate(R.id.action_activityListFragment_to_activityDetailFragment, bundle);
             });

@@ -12,8 +12,8 @@ public class Activity implements Serializable {
     private String description;
     private boolean isOutside;
     private String suggestedWeather;
-    private String imageUrl;
-    public Activity(String id, String name, String location, double price, String description, boolean isOutside, String suggestedWeather, String imageUrl) {
+    private int imageResId;
+    public Activity(String id, String name, String location, double price, String description, boolean isOutside, String suggestedWeather, int imageResId) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -21,7 +21,7 @@ public class Activity implements Serializable {
         this.description = description;
         this.isOutside = isOutside;
         this.suggestedWeather = suggestedWeather;
-        this.imageUrl = imageUrl;
+        this.imageResId = imageResId;
     }
 
     public String getId() {return id;}
@@ -41,7 +41,7 @@ public class Activity implements Serializable {
         return isOutside;
     }
     public String getSuggestedWeather() { return suggestedWeather; }
-    public String getImageUrl() { return imageUrl; }
+    public int getImageResId() { return imageResId; }
 
     @Override
     public String toString() {

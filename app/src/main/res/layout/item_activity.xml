@@ -14,8 +14,7 @@
             android:id="@+id/imageActivity"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textActivityName"
@@ -35,21 +34,14 @@
             android:layout_height="wrap_content"
             android:text="Lieu" />
 
-        <TextView
-            android:id="@+id/textPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="266dp"
-            android:text="0.00€" />
 
         <Button
             android:id="@+id/btnDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textLocation"
-            android:layout_marginStart="168dp"
-            android:layout_marginTop="-1dp"
+            android:layout_marginStart="175dp"
+            android:layout_marginTop="-27dp"
             android:layout_toEndOf="@id/imageActivity"
             android:text="Afficher en détail" />
     </RelativeLayout>

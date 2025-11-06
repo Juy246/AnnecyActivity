@@ -43,7 +43,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
         holder.name.setText(activity.getName());
         holder.location.setText(activity.getLocation());
         Glide.with(holder.itemView.getContext())
-                .load(activity.getImageUrl())
+                .load(activity.getImageResId())
                 .placeholder(android.R.drawable.ic_menu_gallery) // affiché pendant le chargement
                 .error(android.R.drawable.ic_menu_report_image)  // affiché en cas d’erreur
                 .centerCrop()
