@@ -24,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class CurrentWeatherFragment extends Fragment {
     private ForecastsViewModel viewModel;
-    private TextView temp, temp_min, temp_max, condition, feels_like, humidity, pressure;
+    private TextView temp,temp_min, temp_max, condition, feels_like, humidity, pressure;
 
     @Nullable
     @Override
@@ -33,6 +33,7 @@ public class CurrentWeatherFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_current_weather, container, false);
 
         temp = view.findViewById(R.id.textTemp);
+        condition = view.findViewById(R.id.textCondition);
         temp_min = view.findViewById(R.id.textTempMin);
         temp_max = view.findViewById(R.id.textTempMax);
         feels_like = view.findViewById(R.id.textFeelsLike);
@@ -61,6 +62,7 @@ public class CurrentWeatherFragment extends Fragment {
         if (forecast != null && forecast.getMain() != null) {
             Weather weather = forecast.getMain();
             temp.setText(weather.getTemp() + " °C");
+            condition.setText(forecast.getWeatherCondition().get(0).getDescription());
             temp_min.setText("Temp Min : " + weather.getTemp_min() + " °C");
             temp_max.setText("Temp Max : " + weather.getTemp_max() + " °C");
             feels_like.setText("Ressenti : " + weather.getFeelsLike() + " °C");
