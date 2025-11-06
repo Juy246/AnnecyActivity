@@ -51,7 +51,7 @@
     <!-- Fragment Formulaire de filtrage -->
     <fragment
         android:id="@+id/formFragment"
-        android:name="com.example.annecyactivity.ui.activity.FormFragment"
+        android:name="com.example.annecyactivity.ui.activity.ActivityFormFragment"
         android:label="Sélectionner les activités">
         <action
             android:id="@+id/action_formFragment_to_activityListFragment"
